@@ -8,7 +8,7 @@
 
 namespace App\Handlers;
 
-use Image;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ImageUploadHandler
 {
@@ -58,7 +58,7 @@ class ImageUploadHandler
         // 进行大小调整的操作
         $image->resize($max_width, null, function ($constraint) {
             // 设定宽度是 $max_width，高度等比例双方缩放
-            $constraint->aspectRation();
+            $constraint->aspectRatio();
             // 防止裁图时图片尺寸变大
             $constraint->upsize();
         });
