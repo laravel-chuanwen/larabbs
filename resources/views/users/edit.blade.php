@@ -13,7 +13,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{route('users.update',$user->id)}}" method="POST" accept-charset="UTF-8">
+                    <form action="{{route('users.update',$user->id)}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_method" value="PUT">
                         @include('shared._error')
@@ -34,7 +34,7 @@
                             <input type="file" name="avatar" class="form-control-file">
                             @if($user->avatar)
                                 <br>
-                                <img src="{{$user->avatar}}" width="200" class="thumbnail img-responsive"">
+                                <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="200" />
                             @endif
                         </div>
                         <div class="well well-sm">
